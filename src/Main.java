@@ -8,8 +8,10 @@ public class Main {
  //       Human.Human1 human1 = new Human.Human1();
 
         Human human = new Human("Petya", WeeksDays.FRIDAY);
-        System.out.println(human.getWorkingDay());
-        System.out.println(human.getWorkingDay().getCode());
+        Human human1 = new Human("Petya", WeeksDays.FRIDAY);
+        System.out.println((human.equals(human1)));
+/*        System.out.println(human.getWorkingDay());
+        System.out.println(human.getWorkingDay().getCode());*/
     }
 
 }

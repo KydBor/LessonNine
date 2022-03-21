@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Human {
  /*   public final static int AGE = 25; // с большой буквы константы
     public final static int B = 15;*/
@@ -23,11 +25,15 @@ public class Human {
 
 
         }*/
-    public static final String HELLO_WORLD = "Hello World";
     private String name;
     private WeeksDays workingDay;
+//    public static final String HELLO_WORLD = "Hello World";
+
 
     public Human(String name, WeeksDays workingDay) {
+        this.name = name;
+        this.workingDay = workingDay;
+
     }
 
     public String getName() {
@@ -49,4 +55,19 @@ public class Human {
     public void printHelloWorld() {
         System.out.println("Hello World");
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;// сравниваем а == а
+        if (o == null || getClass() != o.getClass()) return false; // если не равняется какие-то условия
+        Human human = (Human) o;//приведение типов, приводится объект к классу human
+        return Objects.equals(name, human.name) && workingDay == human.workingDay;
+        // сравниваются значения полей, если условия выполняются
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, workingDay);
+    }
+
 }
